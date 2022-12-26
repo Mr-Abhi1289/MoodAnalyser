@@ -22,10 +22,19 @@ namespace MoodAnalyserProb
         
         public string AnalyseMood()
         {
-            if (this.message.Contains("sad", StringComparison.OrdinalIgnoreCase))
-                return "sad";
-            else
+            try
+            {
+
+
+                if (this.message.Contains("sad", StringComparison.OrdinalIgnoreCase))
+                    return "sad";
+                else
+                    return "happy";
+            }
+            catch
+            {
                 return "happy";
+            }
         }
     }
 }

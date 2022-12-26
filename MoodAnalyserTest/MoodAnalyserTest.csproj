@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ConsoleApp1\moodanalyser.csproj" />
+    <ProjectReference Include="..\MoodAnalyser\moodanalyser.csproj" />
   </ItemGroup>
 
 </Project>

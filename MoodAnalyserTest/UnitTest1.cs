@@ -7,23 +7,23 @@ namespace MoodAnalyserTest
         [TestMethod]
         public void AnalysisMood_Should_return_SAD()
         {
+            //arrange
             string message = "i am in sad mood";
             MoodAnalyser mood = new MoodAnalyser(message);
+            //Act
             string result = mood.AnalyseMood();
+            //Assert
             Assert.AreEqual(result,"sad");
         }
         [TestMethod]
-        public void AnalysisMood_Should_return_HAPPY()
+        public void AnalysisMood_Should_return_HAPPY_when_given_NULL()
         {
-
-            string message = "i am in Happy mood";
+            string message = null;
+            
             MoodAnalyser mood = new MoodAnalyser(message);
             string result = mood.AnalyseMood();
             Assert.AreEqual(result, "happy");
 
         }
-
-
-
     }
 }
