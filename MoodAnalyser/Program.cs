@@ -3,13 +3,26 @@ using System.Reflection.Metadata;
 
 namespace MoodAnalyserProb
 {
-    public  class Program
+    public class Program
     {
         static void Main(string[] args)
         {
-            String mood = " I am very happy";
-            MoodAnalyser moodAnalyser= new MoodAnalyser();
-            Console.WriteLine(moodAnalyser.AnalyseMood());
+            try
+            {
+                String mood = Console.ReadLine();
+                MoodAnalyser moodAnalyser = new MoodAnalyser(mood);
+                string result = moodAnalyser.AnalyseMood();
+                Console.WriteLine(result);
+            }
+            catch (NullReferenceException e)
+            {
+                Console.WriteLine(e.Message);
+
+            }
         }
     }
 }
+
+            
+            
+    

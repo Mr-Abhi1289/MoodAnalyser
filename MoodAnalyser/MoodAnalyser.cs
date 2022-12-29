@@ -1,5 +1,7 @@
-﻿using System;
+﻿using moodanalyser;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -9,12 +11,7 @@ namespace MoodAnalyserProb
 {
     public class MoodAnalyser
     {
-        public string message { get; set; }
-        
-        public MoodAnalyser()
-        {
-            this.message = " ";
-        }
+        string message;
         public MoodAnalyser(string message)
         {
             this.message= message;
@@ -24,14 +21,21 @@ namespace MoodAnalyserProb
         {
             try
             {
-
-
-                if (this.message.Contains("sad", StringComparison.OrdinalIgnoreCase))
-                    return "sad";
-                else
+                if (message.Equals(string.Empty))
+                {
+                    throw new CustomException(CustomException.ExceptionType.EMPTY_EXCEPTION, "Mood should not be empty");
+                }
+                else if (message.Contains("happy"))
+                {
                     return "happy";
+                }
+                else
+                {
+                    return "sad";
+                }
+
             }
-            catch
+            catch(NullReferenceException)
             {
                 return "happy";
             }
